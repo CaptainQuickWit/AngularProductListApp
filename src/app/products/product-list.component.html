@@ -31,7 +31,6 @@
                     <th>Available</th>
                     <th>Price</th>
                     <th>5 star Rating</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +46,8 @@
                     <td> {{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
                     <td> <pm-star [rating]='product.starRating'
                         (ratingClicked)='onRatingClicked($event)'></pm-star></td>
+                    <!-- <pm-star [rating]='product.starRating
+                                  (notify)='onNotify($event)>'-->
                 </tr>
             </tbody>
         </table>
