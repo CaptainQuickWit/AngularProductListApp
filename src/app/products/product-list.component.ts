@@ -1,25 +1,26 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { IProduct } from './product';
 import { ProductService } from './product.service';
+import { Subscription } from 'rxjs';
+
 @Component({
     selector: 'pm-products',
     styleUrls: ['./product-list.component.css'],
     templateUrl:'./product-list.component.html',
     providers: [ProductService]
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
     pageTitle: string = 'Product Management';
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
-
+    errorMessage = '';
     filteredProducts: IProduct[] = [];
-    //products: IProduct[] = [];
-    
+    sub!: Subscription;
+    products: IProduct[] = [];
+
     private _listFilter: string = '';
-    
-   
 
     get listFilter(): string {
         return this._listFilter;
@@ -30,8 +31,6 @@ export class ProductListComponent implements OnInit {
         console.log('In setter:', value);
         this.filteredProducts = this.performFilter(value);
     }
-
-    products: IProduct[] = [];
 
      /* old way of doing it
     private _productService;
@@ -60,7 +59,27 @@ export class ProductListComponent implements OnInit {
     ngOnInit(): void {
         this.listFilter = 'cart';
         console.log('In OnInit');
-        this.products = this.productService.getProducts();
-        this.listFilter = 'cart';
+        //this.products = this.productService.getProducts(); 1st
+        /*
+        this.productService.getProducts().subscribe({ 2nd
+            next: products => this.products = products,
+            error: err => this.errorMessage = err
+        });
+        this.filteredProducts = this.products;*/
+
+        //3rd
+        this.sub = this.productService.getProducts().subscribe({
+            next: products => {
+                this.products = products;
+                this.filteredProducts = this.products;
+            },
+            error: err => this.errorMessage = err
+        });
+
     }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
 }
