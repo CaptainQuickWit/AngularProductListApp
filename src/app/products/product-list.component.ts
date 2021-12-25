@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 
-    pageTitle: string = 'Product Management';
+    pageTitle: string = 'Product List Screen';
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
@@ -57,7 +57,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.listFilter = 'cart';
+        
         console.log('In OnInit');
         //this.products = this.productService.getProducts(); 1st
         /*
