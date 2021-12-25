@@ -7,7 +7,7 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './products/product-detail.component';
-import {WelcomeComponent} from './home/welcome.component';
+import { WelcomeComponent } from './home/welcome.component';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './products/product-detail.guard';
 
@@ -31,7 +31,7 @@ import { ProductDetailGuard } from './products/product-detail.guard';
       },
       {
         path: 'products/:id',
-        canActivate: [ProductDetailGuard] ,
+        canActivate: [ProductDetailGuard],
         component: ProductDetailComponent
       },
       {

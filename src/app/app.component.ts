@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   //styleUrls: ['./app.component.css'],
   template: `
   <nav class='navbar navbar-expand navbar-light bg-light'>
-    <a class='navbar-brand'>{{pageTitle}}</a>
+    <a class='navbar-brand px-5'>{{pageTitle}}</a>
     <ul class='nav nav-pills'>
       <li><a class='nav-link' routerLink='/welcome'>Home</a></li>
       <li><a class='nav-link'routerLink='/products'>Product List</a></li>
@@ -20,5 +20,5 @@ import { Component } from '@angular/core';
   //<a [routerLink]= "['/products']" >Product List</a>
 })
 export class AppComponent {
-  pageTitle = 'Angular: Getting Started';
+  pageTitle = 'Product Management System';
 }

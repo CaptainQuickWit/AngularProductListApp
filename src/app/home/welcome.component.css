@@ -1,0 +1,16 @@
+.nav-link {
+    font-size: large;
+}
+/*
+.box { 
+	float: left;
+	padding: 0 8px;
+	width: 25%;
+	height: 400px;
+	text-align: center; 
+	box-sizing: border-box;
+}*/
+
+*{
+    overflow:hidden;
+}
