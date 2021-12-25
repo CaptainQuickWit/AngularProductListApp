@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     filteredProducts: IProduct[] = [];
     sub!: Subscription;
     products: IProduct[] = [];
-
+    
     private _listFilter: string = '';
 
     get listFilter(): string {
@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     constructor(private productService: ProductService) {
 
     }
-    
+
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) => 
