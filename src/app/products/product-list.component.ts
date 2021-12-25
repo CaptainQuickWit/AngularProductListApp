@@ -4,7 +4,7 @@ import { ProductService } from './product.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'pm-products',
+    //selector: 'pm-products', **will no longer be used as a directive**
     styleUrls: ['./product-list.component.css'],
     templateUrl:'./product-list.component.html',
     providers: [ProductService]
